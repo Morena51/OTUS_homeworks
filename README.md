@@ -1,2 +1,4 @@
 # Homeworks
-otus course homeworks
+Repository for OTUS Python course homeworks.
+
+Owner is Petrova Marina
