@@ -27,6 +27,7 @@ def is_prime(number):
         divider += 1
     return divider == number
 
+
 # filter types
 ODD = "odd"
 EVEN = "even"
@@ -53,4 +54,3 @@ def filter_numbers(numbers, filter_type):
         return list(filter(lambda number: is_prime(number), numbers))
     else:
         raise ValueError("A filter type not in ['odd','even', 'prime']")
-
