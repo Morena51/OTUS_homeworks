@@ -46,11 +46,11 @@ def filter_numbers(numbers, filter_type):
     <<< [2, 4]
     """
     result = []
-    if filter_type == 'even':
+    if filter_type == EVEN:
         return list(filter(lambda number: number % 2 == 0, numbers))
-    elif filter_type == 'odd':
+    elif filter_type == ODD:
         return list(filter(lambda number: number % 2 != 0, numbers))
-    elif filter_type == "prime":
-        return list(filter(lambda number: is_prime(number), numbers))
+    elif filter_type == PRIME:
+        return list(filter(is_prime, numbers))
     else:
         raise ValueError("A filter type not in ['odd','even', 'prime']")
