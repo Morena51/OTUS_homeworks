@@ -18,14 +18,11 @@ def power_numbers(*numbers):
 
 
 def is_prime(number):
-    if number <= 0 or not isinstance(number, int):
-        return False
-    divider = 2
-    if number == 1:
-        return True
-    while number % divider != 0:
-        divider += 1
-    return divider == number
+    """Проверка на простоту числа"""
+    for i in range(2, int(number ** 0.5) + 1):
+        if number % i == 0:
+            return False
+    return number > 1
 
 
 # filter types
