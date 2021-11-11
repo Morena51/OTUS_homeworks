@@ -39,6 +39,7 @@ async def create_users(Users: list[User], db_session: AsyncSession) -> list[User
         db_session.add_all(users)
     return users
 
+
 async def create_posts(Posts: list[Post], db_session: AsyncSession) -> list[Post]:
     posts = [
         Post(item["userId"], item["title"], item["body"])
@@ -49,19 +50,16 @@ async def create_posts(Posts: list[Post], db_session: AsyncSession) -> list[Post
     return posts
 
 
-
-
 async def async_main():
     # Создание таблицы
     await create_table()
-    posts_data = await fetch_posts()
-    users_data = await fetch_users()
-    #await run_queries_asyncpg()
+    users_data, posts_data = await asyncio.gather(
+        fetch_users(),
+        fetch_posts(),
+    )
     await create_users(users_data, async_session)
     await create_posts(posts_data, async_session)
-    #await query_authors()
-    #await create_articles()
-    #await load_select_in()
+
 
 if __name__ == '__main__':
     print(engine)
