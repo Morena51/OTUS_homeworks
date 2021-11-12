@@ -14,14 +14,12 @@
 """
 
 import asyncio
-from datetime import datetime
 
-import asyncpg
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker, joinedload, selectinload
+from sqlalchemy.ext.asyncio import AsyncSession
 from jsonplaceholder_requests import fetch_posts, fetch_users
-from models import User, Post, engine, Base, async_session
+from models import User, Post
+from db import engine, async_session
+from base import Base
 
 
 async def create_table():

@@ -8,7 +8,6 @@
 создайте связи relationship между моделями: User.posts и Post.user
 """
 
-import os
 from sqlalchemy import (
     Column,
     String,
@@ -17,8 +16,7 @@ from sqlalchemy import (
     ForeignKey
 )
 from sqlalchemy .orm import relationship
-from sqlalchemy.orm import sessionmaker, joinedload, selectinload
-from .base import Base
+from base import Base
 
 
 class User(Base):
