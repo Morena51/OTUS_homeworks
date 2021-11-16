@@ -16,10 +16,9 @@
 import asyncio
 
 from sqlalchemy.ext.asyncio import AsyncSession
-from jsonplaceholder_requests import fetch_posts, fetch_users
-from models import User, Post
-from db import engine, async_session
-from base import Base
+import jsonplaceholder_requests
+from models import Post, User, engine, Session
+from models.base import Base
 
 
 async def create_table():
@@ -28,20 +27,20 @@ async def create_table():
         await conn.run_sync(Base.metadata.create_all)
 
 
-async def create_users(Users: list[User], db_session: AsyncSession) -> list[User]:
+async def create_users(users_data: list[User], db_session: AsyncSession) -> list[User]:
     users = [
         User(item["name"], item["username"], item["email"])
-        for item in Users
+        for item in users_data
     ]
     async with db_session.begin():
         db_session.add_all(users)
     return users
 
 
-async def create_posts(Posts: list[Post], db_session: AsyncSession) -> list[Post]:
+async def create_posts(posts_data: list[Post], db_session: AsyncSession) -> list[Post]:
     posts = [
         Post(item["userId"], item["title"], item["body"])
-        for item in Posts
+        for item in posts_data
     ]
     async with db_session.begin():
         db_session.add_all(posts)
@@ -52,11 +51,11 @@ async def async_main():
     # Создание таблицы
     await create_table()
     users_data, posts_data = await asyncio.gather(
-        fetch_users(),
-        fetch_posts(),
+        jsonplaceholder_requests.fetch_users(),
+        jsonplaceholder_requests.fetch_posts(),
     )
-    await create_users(users_data, async_session)
-    await create_posts(posts_data, async_session)
+    await create_users(users_data, Session())
+    await create_posts(posts_data, Session())
 
 
 if __name__ == '__main__':

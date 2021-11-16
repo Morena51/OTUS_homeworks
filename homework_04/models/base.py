@@ -12,6 +12,8 @@ class Base:
     def __tablename__(cls):
         return f"{cls.__name__.lower()}s"
 
+    __table_args__ = {'extend_existing': True}
+
     id = Column(Integer, primary_key=True)
 
     def __str__(self):
