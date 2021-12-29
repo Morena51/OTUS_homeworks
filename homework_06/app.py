@@ -11,10 +11,13 @@ app = Flask(__name__)
 app.register_blueprint(users_app, url_prefix="/users")
 app.register_blueprint(posts_app, url_prefix="/posts")
 
-app.config.update(
-    SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://postgres:postgres@localhost:5432/postgres"
-)
+#app.config.update(
+#    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+#    SQLALCHEMY_DATABASE_URI="postgresql+psycopg2://postgres:postgres@localhost:5432/postgres"
+#)
+
+CONFIG_OBJ_PATH = "config.{}".format(os.getenv("CONFIG", "DevelopmentConfig"))
+app.config.from_object(CONFIG_OBJ_PATH)
 
 db.init_app(app)
 
@@ -27,4 +30,4 @@ def root():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5012)
+    app.run()

@@ -2,12 +2,11 @@ import os
 
 SQLALCHEMY_DATABASE_URI = os.getenv(
     "SQLALCHEMY_DATABASE_URI",
-    "postgresql+psycopg2://app:password@localhost:5432/shop",
+    "postgresql+psycopg2://app:password@localhost:5432/blog",
 )
 
 SECRET_KEY = os.getenv(
     "SECRET_KEY",
-    "sfafghaofgijafj",
 )
 
 

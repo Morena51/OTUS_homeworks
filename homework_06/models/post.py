@@ -2,10 +2,8 @@ from sqlalchemy import (
     Column,
     String,
     Text,
-    Integer,
-    ForeignKey
 )
-from sqlalchemy .orm import relationship
+
 from .base import Base
 from .database import db
 
@@ -21,7 +19,3 @@ class Post(db.Model, Base):
 
     title = Column(String)
     body = Column(Text)
-    #user_id = Column(Integer, ForeignKey("users.id"), nullable=True)
-
-    #user = relationship("User", back_populates="posts")
-

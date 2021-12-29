@@ -10,9 +10,9 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-RUN chmod +x prestart.sh
+RUN chmod +x setup.sh
 
-ENV CONFIG="ProductionConfig"
+ENV CONFIG="DevelopmentConfig"
 
-ENTRYPOINT ["bash", "prestart.sh"]
+ENTRYPOINT ["bash", "setup.sh"]
 CMD python app.py
