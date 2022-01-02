@@ -59,7 +59,7 @@ def get_body_from_form():
     raise BadRequest("field content is required!")
 
 
-def get_user_from_form():
+def get_user_id_post_from_form():
     user = request.form.get("user_id")
     if user_id := (user and user.strip()):
         return user_id
@@ -74,7 +74,7 @@ def add_post():
 
     title = get_title_from_form()
     body = get_body_from_form()
-    user_id = get_user_from_form()
+    user_id = get_user_id_post_from_form()
     post = Post(user_id, title, body)
     db.session.add(post)
     save_post(post.title)
