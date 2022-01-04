@@ -7,7 +7,7 @@
 3. source env/bin/activate
 4. pip install -U pip
 5. pip install -r requirements.txt
-6. cd coverage_app
+6. cd coverage
 7. pip install -r requirements.txt
 10. python manage.py runserver
 
