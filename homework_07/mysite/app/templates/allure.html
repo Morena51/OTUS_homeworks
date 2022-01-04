@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block section %}
+    <h2>E2E тесты</h2>
+{% endblock %}
+{% block coverage %}
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Название продукта</th>
+                <th scope="col">Автотесты</th>
+                <th scope="col">Ручные тесты</th>
+                <th scope="col">Покрытие требований (e2e)</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for key, value in data.items %}
+                <tr>
+                    <td>{{ key }}</td>
+                    <td>{{ value.0 }}</td>
+                    <td>{{ value.1 }}</td>
+                    <td>{{ value.2 }} %</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
