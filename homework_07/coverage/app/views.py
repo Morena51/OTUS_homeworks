@@ -11,11 +11,10 @@ def e2e(request, slug=''):
 
     data = {}
     for project in projects:
-        project = AllureProjectCoverage.parse_raw(json.dumps(project))
         e2e_tests = E2ETest.objects.filter(project=project.name).order_by('-created_at')
         automated_test_count = e2e_tests.automated
         manual_test_count = e2e_tests.manual
-        coverage_count = get_coverage_count(automated_test_count, manual_test_count)
+        coverage_count = e2e_tests.get_coverage_count(automated_test_count, manual_test_count)
         data[f'{project.name}'] = [automated_test_count, manual_test_count, coverage_count]
 
     context = {"data": data, }

@@ -34,6 +34,10 @@ class E2ETest(Base):
         verbose_name_plural = 'E2E тесты'
         ordering = ['project']
 
+    def get_coverage_count(self) -> float:
+        coverage_count = self.automated / (self.manual + self.automated) * 100
+        return round(coverage_count, 2)
+
 
 class APITest(Base):
     project = models.ForeignKey(Project, on_delete=models.CASCADE, null=False)
