@@ -1,8 +1,4 @@
-# Test Coverage Dashboard
-
-### Где развернуто
-
-http://172.23.12.112/
+# Test automation coverage dashboard
 
 ### Как запустить локально
 
@@ -10,13 +6,33 @@ http://172.23.12.112/
 2. python3 -m venv env
 3. source env/bin/activate
 4. pip install -U pip
-5. cd mysite
-6. pip install -r requirements.txt
-7. export ALLURE_USERNAME=''
-8. export ALLURE_PASSWORD=''
-9. python3 manage.py runserver
+5. pip install -r requirements.txt
+6. cd coverage_app
+7. pip install -r requirements.txt
+10. python manage.py runserver
 
-### Как развернуто
+### Q & A
+* Проверка установленной версии
+  
+  >django-admin --version   
+
+* Старт Django-проекта
+
+    >django-admin startproject coverage
+* Корень проекта = директория с файлом manage.py
+
+* Справка по приложению 
+
+  >python manage.py --help
+
+* Добавление нового приложения  
+  > django-admin startapp [name app]
+  > 
+* Создание миграций
+  >python manage.py makemigrations 
+* Выполнение миграций
+  >python manage.py migrate
+
 
 ###### БД - PostgreSQL
 
