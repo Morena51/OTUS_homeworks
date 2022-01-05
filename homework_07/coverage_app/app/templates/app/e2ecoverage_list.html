@@ -15,7 +15,7 @@
     <ul>
         {% for item in e2ecoverage_list %}
             <li>
-                id = <a href="{% url 'app:e2e_detail' item.id%}" {{ item.id }}> created_at = {{ item.created_at }}
+                id = <a href="{% url 'app:e2e_detail' item.id%}"> {{ item.id }}</a> created_at = {{ item.created_at }}
             </li>
         {% endfor %}
     </ul>

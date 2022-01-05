@@ -88,7 +88,7 @@ def unit(request, slug=''):
         unit_coverage_project = UnitCoverage.objects.filter(project=project.id).order_by('-created_at')
         exist_coverage_in_db = bool(len(unit_coverage_project))
         code_coverage = unit_coverage_project[0].code_coverage if exist_coverage_in_db else 0
-        data[f'{project.name}'] = [code_coverage]
+        data[f'{project.name}'] = [code_coverage, 100-code_coverage]
     context = {"data": data, }
 
     return render(request, 'unit.html', context=context)
