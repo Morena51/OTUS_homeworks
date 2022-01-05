@@ -1,23 +1,16 @@
 {% extends 'base.html' %}
 {% block section %}
 <body>
-<h1>API coverage history</h1>
-<ul>
-    <li>
-        <a href="/">Main</a>
-    </li>
-    <li>
-        <a href="/api">API coverage</a>
-    </li>
-</ul>
+<h3>API coverage history</h3>
 <div class="api-list">
     <ul>
-        {% for item in api_list %}
+        {% for item in apicoverage_list %}
             <li>
                 {{ item }}
             </li>
         {% endfor %}
     </ul>
 </div>
+<a href="/">Main</a><br>
 </body>
 {% endblock %}

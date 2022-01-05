@@ -5,7 +5,7 @@ app_name = 'app'
 
 
 urlpatterns = [
-    path('', views.ProjectListView.as_view()),
+    path('', views.ProjectListView.as_view(), name='project_list'),
     path('project/<int:pk>/', views.ProjectDetailView.as_view(),
          name='project_detail'),
     path('e2e', views.e2e),

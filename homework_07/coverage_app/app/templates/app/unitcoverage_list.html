@@ -1,25 +1,16 @@
 {% extends 'base.html' %}
 {% block section %}
 <body>
-<h1>UNIT coverage history</h1>
-<ul>
-    <li>
-        <a href="/">Main</a>
-    </li>
-    <li>
-        <a href="/unit">unit</a>
-    </li>
-</ul>
-
-
+<h3>UNIT coverage history</h3>
 <div class="unit-list">
     <ul>
-        {% for item in unit_list %}
+        {% for item in unitcoverage_list %}
             <li>
                 {{ item }}
             </li>
         {% endfor %}
     </ul>
 </div>
+<a href="/">Main</a><br>
 </body>
 {% endblock %}

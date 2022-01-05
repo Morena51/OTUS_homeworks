@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block sidebar %}
+{% endblock %}
 {% block section %}
 <body>
 <h3>Проект {{ object.name }}</h3>
@@ -11,5 +13,6 @@
         <li> updated_at = {{ object.updated_at }} </li>
     </ul>
 </div>
+<a href="{% url 'app:project_list' %}">Back to list</a>
 </body>
 {% endblock %}

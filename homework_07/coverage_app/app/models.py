@@ -27,7 +27,7 @@ class E2ECoverage(Base):
     coverage = models.FloatField(default=0)
 
     def __str__(self):
-        return f'{self.project} project has e2e manual tests = {self.manual} and e2e automated tests = {self.automated}'
+        return f'"{self.project.name}" project has e2e manual tests = {self.manual} and e2e automated tests = {self.automated}'
 
     class Meta:
         verbose_name = 'E2E coverage'
@@ -53,7 +53,7 @@ class APICoverage(Base):
     empty_cnt = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f'{self.project} project has full api coverage {self.full_coverage} {self.full_cnt}/{self.actual_cnt})%'
+        return f'"{self.project.name}" project has full api coverage {self.full_coverage} {self.full_cnt}/{self.actual_cnt})%'
 
     class Meta:
         verbose_name = 'API coverage'
@@ -66,7 +66,7 @@ class UnitCoverage(Base):
     code_coverage = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return f'{self.project} project has unit tests code coverage = {self.code_coverage}'
+        return f'"{self.project.name}" project has unit tests code coverage = {self.code_coverage}'
 
     class Meta:
         verbose_name = 'UNIT coverage'
