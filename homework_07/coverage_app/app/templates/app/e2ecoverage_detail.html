@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block section %}
+<body>
+<h3>E2E with id = {{ object.id }} </h3>
+<div class="e2e-details">
+    <ul>
+        <li> id = {{ object.id }} </li>
+        <li> name = {{ object.project.name }} </li>
+        <li> manual = {{ object.manual }} </li>
+        <li> automated = {{ object.automated }} </li>
+        <li> created_at = {{ object.created_at }} </li>
+        <li> updated_at = {{ object.updated_at }} </li>
+    </ul>
+    <a href="{% url 'app:e2e_list' %}">E2E coverage list</a>
+</div>
+</body>
+{% endblock %}

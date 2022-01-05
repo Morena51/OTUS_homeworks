@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block section %}
+<body>
+<h1>E2E coverage history</h1>
+<ul>
+    <li>
+        <a href="/">Main</a>
+    </li>
+    <li>
+        <a href="/e2e">E2E</a>
+    </li>
+</ul>
+
+<div class="e2e-list">
+    <ul>
+        {% for item in e2ecoverage_list %}
+            <li>
+                id = <a href="{% url 'app:e2e_detail' item.id%}" {{ item.id }}> created_at = {{ item.created_at }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+{% endblock %}

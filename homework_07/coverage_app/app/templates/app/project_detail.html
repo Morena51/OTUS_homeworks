@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block section %}
+<body>
+<h3>Проект {{ object.name }}</h3>
+<div class="project-list">
+    <ul>
+        <li> id = {{ object.id }} </li>
+        <li> name = {{ object.name }} </li>
+        <li> description = {{ object.description }} </li>
+        <li> created_at = {{ object.created_at }} </li>
+        <li> updated_at = {{ object.updated_at }} </li>
+    </ul>
+</div>
+</body>
+{% endblock %}

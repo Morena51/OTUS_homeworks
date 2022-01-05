@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block section %}
+<body>
+<h3>Список проектов</h3>
+<div class="project-list">
+    <ul>
+        {% for item in project_list %}
+            <li>
+                <a href="{% url 'app:project_detail' item.id%}">{{ item.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+{% endblock %}

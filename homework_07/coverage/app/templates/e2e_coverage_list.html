@@ -1,0 +1,36 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ p_title|default:"E2E" }}</title>
+</head>
+<body>
+<h1>E2E test list</h1>
+<ul>
+    <li>
+        <a href="/">Main</a>
+    </li>
+    <li>
+        <a href="/e2e/">E2e</a>
+    </li>
+</ul>
+
+<a href="{% url 'e2e:e2e_test_create' %}">New e2e coverage</a>
+
+<div class="e2e-list">
+    <ul>
+        {% for item in e2e_list %}
+            <li>
+                {{ item }}
+                <a href="{% url 'e2e:e2e_update' item.kind_id %}">
+                    edit animal kind
+                </a>
+                {{ item.my_food }}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+</body>
+</html>
