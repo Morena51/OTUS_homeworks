@@ -1,0 +1,15 @@
+# git
+.git
+Dockerfile
+.gitignore
+README.md
+
+# Cache
+.pytestcache
+.pytest_cache
+__pytestcache__
+
+# Environments
+env 
+.DS_Store
+.idea

@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  coverage_dashboard:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+        - .:/code
+    ports:
+        - "8000:8000"
+    environment:
+        - POSTGRES_NAME=coverage_dashboard
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=password
+    depends_on:
+        - db
+
+  db:
+    image: postgres # use latest official postgres version
+    environment:
+      POSTGRES_DB: coverage_dashboard
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+
+
+volumes:
+  pg-data:
