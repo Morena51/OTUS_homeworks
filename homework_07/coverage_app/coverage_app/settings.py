@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-a#s9bpz#!te#ve=67cf^8#a^r6*3=t6#&uiw@kmn4sop8^hgb-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,15 +83,15 @@ WSGI_APPLICATION = 'coverage_app.wsgi.application'
 #}
 
 DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.postgresql',
-         'NAME': 'coverage_dashboard',
-         'USER': 'postgres',
-         'PASSWORD': 'password',
-         'HOST': '127.0.0.1',
-         'PORT': '5432',
-     }
- }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_NAME'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
 
 
 # Password validation

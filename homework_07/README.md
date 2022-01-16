@@ -7,9 +7,8 @@
 3. source env/bin/activate
 4. pip install -U pip
 5. pip install -r requirements.txt
-6. cd coverage
-7. pip install -r requirements.txt
-10. python manage.py runserver
+6. python manage.py migrate
+7. python manage.py runserver
 
 ### Q & A
 * Проверка установленной версии
@@ -34,8 +33,17 @@
   >python manage.py migrate
 
 
-###### БД - PostgreSQL
+### База данных
+Изменить параметры подключения к базе данных можно в файле coverage_app/setting.py в переменной DATABASES.
 
+По умолчанию используется PostgreSQL
+
+
+### Как запустить через docker-compose
+Скачайте репозиторий. В директории скаченного проекта выполните команду
+> docker-compose up
+
+По умолчанию создается superuser admin
 ###### Веб-сервер - uWSGI
 
 ###### Сервер приложений - Gunicorn
