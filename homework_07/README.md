@@ -31,6 +31,9 @@
   >python manage.py makemigrations 
 * Выполнение миграций
   >python manage.py migrate
+  > 
+* Запуск тестов
+>  python manage.py test -v 2 app.tests
 
 
 ### База данных

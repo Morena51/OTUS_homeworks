@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'coverage_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_NAME'),
-        'USER': os.environ.get('POSTGRES_USER'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
-        'HOST': 'db',
+        'NAME': os.environ.get('POSTGRES_NAME') or 'coverage_dashboard',
+        'USER': os.environ.get('POSTGRES_USER') or 'postgres',
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD') or 'password',
+        'HOST': 'localhost',
         'PORT': 5432,
     }
 }
